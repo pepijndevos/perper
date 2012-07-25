@@ -1,0 +1,727 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=latin1">
+  <style type="text/css">
+td.linenos { background-color: #f0f0f0; padding-right: 10px; }
+span.lineno { background-color: #f0f0f0; padding: 0 5px 0 5px; }
+pre { line-height: 125%; }
+body .hll { background-color: #ffffcc }
+body  { background: #f8f8f8; }
+body .c { color: #408080; font-style: italic } /* Comment */
+body .err { border: 1px solid #FF0000 } /* Error */
+body .k { color: #008000; font-weight: bold } /* Keyword */
+body .o { color: #666666 } /* Operator */
+body .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+body .cp { color: #BC7A00 } /* Comment.Preproc */
+body .c1 { color: #408080; font-style: italic } /* Comment.Single */
+body .cs { color: #408080; font-style: italic } /* Comment.Special */
+body .gd { color: #A00000 } /* Generic.Deleted */
+body .ge { font-style: italic } /* Generic.Emph */
+body .gr { color: #FF0000 } /* Generic.Error */
+body .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+body .gi { color: #00A000 } /* Generic.Inserted */
+body .go { color: #888888 } /* Generic.Output */
+body .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+body .gs { font-weight: bold } /* Generic.Strong */
+body .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+body .gt { color: #0044DD } /* Generic.Traceback */
+body .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+body .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+body .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+body .kp { color: #008000 } /* Keyword.Pseudo */
+body .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+body .kt { color: #B00040 } /* Keyword.Type */
+body .m { color: #666666 } /* Literal.Number */
+body .s { color: #BA2121 } /* Literal.String */
+body .na { color: #7D9029 } /* Name.Attribute */
+body .nb { color: #008000 } /* Name.Builtin */
+body .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+body .no { color: #880000 } /* Name.Constant */
+body .nd { color: #AA22FF } /* Name.Decorator */
+body .ni { color: #999999; font-weight: bold } /* Name.Entity */
+body .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+body .nf { color: #0000FF } /* Name.Function */
+body .nl { color: #A0A000 } /* Name.Label */
+body .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+body .nt { color: #008000; font-weight: bold } /* Name.Tag */
+body .nv { color: #19177C } /* Name.Variable */
+body .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+body .w { color: #bbbbbb } /* Text.Whitespace */
+body .mf { color: #666666 } /* Literal.Number.Float */
+body .mh { color: #666666 } /* Literal.Number.Hex */
+body .mi { color: #666666 } /* Literal.Number.Integer */
+body .mo { color: #666666 } /* Literal.Number.Oct */
+body .sb { color: #BA2121 } /* Literal.String.Backtick */
+body .sc { color: #BA2121 } /* Literal.String.Char */
+body .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+body .s2 { color: #BA2121 } /* Literal.String.Double */
+body .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+body .sh { color: #BA2121 } /* Literal.String.Heredoc */
+body .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+body .sx { color: #008000 } /* Literal.String.Other */
+body .sr { color: #BB6688 } /* Literal.String.Regex */
+body .s1 { color: #BA2121 } /* Literal.String.Single */
+body .ss { color: #19177C } /* Literal.String.Symbol */
+body .bp { color: #008000 } /* Name.Builtin.Pseudo */
+body .vc { color: #19177C } /* Name.Variable.Class */
+body .vg { color: #19177C } /* Name.Variable.Global */
+body .vi { color: #19177C } /* Name.Variable.Instance */
+body .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+  </style>
+</head>
+<body>
+<h2></h2>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#L-1">  1</a>
+<a href="#L-2">  2</a>
+<a href="#L-3">  3</a>
+<a href="#L-4">  4</a>
+<a href="#L-5">  5</a>
+<a href="#L-6">  6</a>
+<a href="#L-7">  7</a>
+<a href="#L-8">  8</a>
+<a href="#L-9">  9</a>
+<a href="#L-10"> 10</a>
+<a href="#L-11"> 11</a>
+<a href="#L-12"> 12</a>
+<a href="#L-13"> 13</a>
+<a href="#L-14"> 14</a>
+<a href="#L-15"> 15</a>
+<a href="#L-16"> 16</a>
+<a href="#L-17"> 17</a>
+<a href="#L-18"> 18</a>
+<a href="#L-19"> 19</a>
+<a href="#L-20"> 20</a>
+<a href="#L-21"> 21</a>
+<a href="#L-22"> 22</a>
+<a href="#L-23"> 23</a>
+<a href="#L-24"> 24</a>
+<a href="#L-25"> 25</a>
+<a href="#L-26"> 26</a>
+<a href="#L-27"> 27</a>
+<a href="#L-28"> 28</a>
+<a href="#L-29"> 29</a>
+<a href="#L-30"> 30</a>
+<a href="#L-31"> 31</a>
+<a href="#L-32"> 32</a>
+<a href="#L-33"> 33</a>
+<a href="#L-34"> 34</a>
+<a href="#L-35"> 35</a>
+<a href="#L-36"> 36</a>
+<a href="#L-37"> 37</a>
+<a href="#L-38"> 38</a>
+<a href="#L-39"> 39</a>
+<a href="#L-40"> 40</a>
+<a href="#L-41"> 41</a>
+<a href="#L-42"> 42</a>
+<a href="#L-43"> 43</a>
+<a href="#L-44"> 44</a>
+<a href="#L-45"> 45</a>
+<a href="#L-46"> 46</a>
+<a href="#L-47"> 47</a>
+<a href="#L-48"> 48</a>
+<a href="#L-49"> 49</a>
+<a href="#L-50"> 50</a>
+<a href="#L-51"> 51</a>
+<a href="#L-52"> 52</a>
+<a href="#L-53"> 53</a>
+<a href="#L-54"> 54</a>
+<a href="#L-55"> 55</a>
+<a href="#L-56"> 56</a>
+<a href="#L-57"> 57</a>
+<a href="#L-58"> 58</a>
+<a href="#L-59"> 59</a>
+<a href="#L-60"> 60</a>
+<a href="#L-61"> 61</a>
+<a href="#L-62"> 62</a>
+<a href="#L-63"> 63</a>
+<a href="#L-64"> 64</a>
+<a href="#L-65"> 65</a>
+<a href="#L-66"> 66</a>
+<a href="#L-67"> 67</a>
+<a href="#L-68"> 68</a>
+<a href="#L-69"> 69</a>
+<a href="#L-70"> 70</a>
+<a href="#L-71"> 71</a>
+<a href="#L-72"> 72</a>
+<a href="#L-73"> 73</a>
+<a href="#L-74"> 74</a>
+<a href="#L-75"> 75</a>
+<a href="#L-76"> 76</a>
+<a href="#L-77"> 77</a>
+<a href="#L-78"> 78</a>
+<a href="#L-79"> 79</a>
+<a href="#L-80"> 80</a>
+<a href="#L-81"> 81</a>
+<a href="#L-82"> 82</a>
+<a href="#L-83"> 83</a>
+<a href="#L-84"> 84</a>
+<a href="#L-85"> 85</a>
+<a href="#L-86"> 86</a>
+<a href="#L-87"> 87</a>
+<a href="#L-88"> 88</a>
+<a href="#L-89"> 89</a>
+<a href="#L-90"> 90</a>
+<a href="#L-91"> 91</a>
+<a href="#L-92"> 92</a>
+<a href="#L-93"> 93</a>
+<a href="#L-94"> 94</a>
+<a href="#L-95"> 95</a>
+<a href="#L-96"> 96</a>
+<a href="#L-97"> 97</a>
+<a href="#L-98"> 98</a>
+<a href="#L-99"> 99</a>
+<a href="#L-100">100</a>
+<a href="#L-101">101</a>
+<a href="#L-102">102</a>
+<a href="#L-103">103</a>
+<a href="#L-104">104</a>
+<a href="#L-105">105</a>
+<a href="#L-106">106</a>
+<a href="#L-107">107</a>
+<a href="#L-108">108</a>
+<a href="#L-109">109</a>
+<a href="#L-110">110</a>
+<a href="#L-111">111</a>
+<a href="#L-112">112</a>
+<a href="#L-113">113</a>
+<a href="#L-114">114</a>
+<a href="#L-115">115</a>
+<a href="#L-116">116</a>
+<a href="#L-117">117</a>
+<a href="#L-118">118</a>
+<a href="#L-119">119</a>
+<a href="#L-120">120</a>
+<a href="#L-121">121</a>
+<a href="#L-122">122</a>
+<a href="#L-123">123</a>
+<a href="#L-124">124</a>
+<a href="#L-125">125</a>
+<a href="#L-126">126</a>
+<a href="#L-127">127</a>
+<a href="#L-128">128</a>
+<a href="#L-129">129</a>
+<a href="#L-130">130</a>
+<a href="#L-131">131</a>
+<a href="#L-132">132</a>
+<a href="#L-133">133</a>
+<a href="#L-134">134</a>
+<a href="#L-135">135</a>
+<a href="#L-136">136</a>
+<a href="#L-137">137</a>
+<a href="#L-138">138</a>
+<a href="#L-139">139</a>
+<a href="#L-140">140</a>
+<a href="#L-141">141</a>
+<a href="#L-142">142</a>
+<a href="#L-143">143</a>
+<a href="#L-144">144</a>
+<a href="#L-145">145</a>
+<a href="#L-146">146</a>
+<a href="#L-147">147</a>
+<a href="#L-148">148</a>
+<a href="#L-149">149</a>
+<a href="#L-150">150</a>
+<a href="#L-151">151</a>
+<a href="#L-152">152</a>
+<a href="#L-153">153</a>
+<a href="#L-154">154</a>
+<a href="#L-155">155</a>
+<a href="#L-156">156</a>
+<a href="#L-157">157</a>
+<a href="#L-158">158</a>
+<a href="#L-159">159</a>
+<a href="#L-160">160</a>
+<a href="#L-161">161</a>
+<a href="#L-162">162</a>
+<a href="#L-163">163</a>
+<a href="#L-164">164</a>
+<a href="#L-165">165</a>
+<a href="#L-166">166</a>
+<a href="#L-167">167</a>
+<a href="#L-168">168</a>
+<a href="#L-169">169</a>
+<a href="#L-170">170</a>
+<a href="#L-171">171</a>
+<a href="#L-172">172</a>
+<a href="#L-173">173</a>
+<a href="#L-174">174</a>
+<a href="#L-175">175</a>
+<a href="#L-176">176</a>
+<a href="#L-177">177</a>
+<a href="#L-178">178</a>
+<a href="#L-179">179</a>
+<a href="#L-180">180</a>
+<a href="#L-181">181</a>
+<a href="#L-182">182</a>
+<a href="#L-183">183</a>
+<a href="#L-184">184</a>
+<a href="#L-185">185</a>
+<a href="#L-186">186</a>
+<a href="#L-187">187</a>
+<a href="#L-188">188</a>
+<a href="#L-189">189</a>
+<a href="#L-190">190</a>
+<a href="#L-191">191</a>
+<a href="#L-192">192</a>
+<a href="#L-193">193</a>
+<a href="#L-194">194</a>
+<a href="#L-195">195</a>
+<a href="#L-196">196</a>
+<a href="#L-197">197</a>
+<a href="#L-198">198</a>
+<a href="#L-199">199</a>
+<a href="#L-200">200</a>
+<a href="#L-201">201</a>
+<a href="#L-202">202</a>
+<a href="#L-203">203</a>
+<a href="#L-204">204</a>
+<a href="#L-205">205</a>
+<a href="#L-206">206</a>
+<a href="#L-207">207</a>
+<a href="#L-208">208</a>
+<a href="#L-209">209</a>
+<a href="#L-210">210</a>
+<a href="#L-211">211</a>
+<a href="#L-212">212</a>
+<a href="#L-213">213</a>
+<a href="#L-214">214</a>
+<a href="#L-215">215</a>
+<a href="#L-216">216</a>
+<a href="#L-217">217</a>
+<a href="#L-218">218</a>
+<a href="#L-219">219</a>
+<a href="#L-220">220</a>
+<a href="#L-221">221</a>
+<a href="#L-222">222</a>
+<a href="#L-223">223</a>
+<a href="#L-224">224</a>
+<a href="#L-225">225</a>
+<a href="#L-226">226</a>
+<a href="#L-227">227</a>
+<a href="#L-228">228</a>
+<a href="#L-229">229</a>
+<a href="#L-230">230</a>
+<a href="#L-231">231</a>
+<a href="#L-232">232</a>
+<a href="#L-233">233</a>
+<a href="#L-234">234</a>
+<a href="#L-235">235</a>
+<a href="#L-236">236</a>
+<a href="#L-237">237</a>
+<a href="#L-238">238</a>
+<a href="#L-239">239</a>
+<a href="#L-240">240</a>
+<a href="#L-241">241</a>
+<a href="#L-242">242</a>
+<a href="#L-243">243</a>
+<a href="#L-244">244</a>
+<a href="#L-245">245</a>
+<a href="#L-246">246</a>
+<a href="#L-247">247</a>
+<a href="#L-248">248</a>
+<a href="#L-249">249</a>
+<a href="#L-250">250</a>
+<a href="#L-251">251</a>
+<a href="#L-252">252</a>
+<a href="#L-253">253</a>
+<a href="#L-254">254</a>
+<a href="#L-255">255</a>
+<a href="#L-256">256</a>
+<a href="#L-257">257</a>
+<a href="#L-258">258</a>
+<a href="#L-259">259</a>
+<a href="#L-260">260</a>
+<a href="#L-261">261</a>
+<a href="#L-262">262</a>
+<a href="#L-263">263</a>
+<a href="#L-264">264</a>
+<a href="#L-265">265</a>
+<a href="#L-266">266</a>
+<a href="#L-267">267</a>
+<a href="#L-268">268</a>
+<a href="#L-269">269</a>
+<a href="#L-270">270</a>
+<a href="#L-271">271</a>
+<a href="#L-272">272</a>
+<a href="#L-273">273</a>
+<a href="#L-274">274</a>
+<a href="#L-275">275</a>
+<a href="#L-276">276</a>
+<a href="#L-277">277</a>
+<a href="#L-278">278</a>
+<a href="#L-279">279</a>
+<a href="#L-280">280</a>
+<a href="#L-281">281</a>
+<a href="#L-282">282</a>
+<a href="#L-283">283</a>
+<a href="#L-284">284</a>
+<a href="#L-285">285</a>
+<a href="#L-286">286</a>
+<a href="#L-287">287</a>
+<a href="#L-288">288</a>
+<a href="#L-289">289</a>
+<a href="#L-290">290</a>
+<a href="#L-291">291</a>
+<a href="#L-292">292</a>
+<a href="#L-293">293</a>
+<a href="#L-294">294</a>
+<a href="#L-295">295</a>
+<a href="#L-296">296</a>
+<a href="#L-297">297</a>
+<a href="#L-298">298</a>
+<a href="#L-299">299</a>
+<a href="#L-300">300</a>
+<a href="#L-301">301</a>
+<a href="#L-302">302</a>
+<a href="#L-303">303</a>
+<a href="#L-304">304</a>
+<a href="#L-305">305</a>
+<a href="#L-306">306</a>
+<a href="#L-307">307</a>
+<a href="#L-308">308</a>
+<a href="#L-309">309</a>
+<a href="#L-310">310</a>
+<a href="#L-311">311</a>
+<a href="#L-312">312</a>
+<a href="#L-313">313</a>
+<a href="#L-314">314</a>
+<a href="#L-315">315</a>
+<a href="#L-316">316</a>
+<a href="#L-317">317</a>
+<a href="#L-318">318</a>
+<a href="#L-319">319</a>
+<a href="#L-320">320</a>
+<a href="#L-321">321</a>
+<a href="#L-322">322</a>
+<a href="#L-323">323</a></pre></div></td><td class="code"><div class="highlight"><pre><a name="L-1"></a><span class="cp">#include &lt;stdlib.h&gt;</span>
+<a name="L-2"></a><span class="cp">#include &lt;stdio.h&gt;</span>
+<a name="L-3"></a><span class="cp">#include &lt;string.h&gt;</span>
+<a name="L-4"></a>
+<a name="L-5"></a><span class="cp">#include &quot;hashmap.h&quot;</span>
+<a name="L-6"></a>
+<a name="L-7"></a>
+<a name="L-8"></a><span class="c1">//TODO: implement hash and equal for nested maps</span>
+<a name="L-9"></a>
+<a name="L-10"></a><span class="kt">void</span> <span class="n"><a href="hashmap.c.html#L-82">empty_free</a></span><span class="p">(</span><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n">self</span><span class="p">);</span>
+<a name="L-11"></a><span class="kt">void</span> <span class="n"><a href="hashmap.c.html#L-86">single_free</a></span><span class="p">(</span><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n">self</span><span class="p">);</span>
+<a name="L-12"></a><span class="kt">void</span> <span class="n"><a href="hashmap.c.html#L-93">bitmap_free</a></span><span class="p">(</span><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n">self</span><span class="p">);</span>
+<a name="L-13"></a><span class="kt">void</span> <span class="n"><a href="hashmap.c.html#L-102">collision_free</a></span><span class="p">(</span><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n">self</span><span class="p">);</span>
+<a name="L-14"></a>
+<a name="L-15"></a><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.c.html#L-108">empty_find</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-16"></a><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.c.html#L-112">single_find</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-17"></a><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.c.html#L-120">bitmap_find</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-18"></a><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.c.html#L-126">collision_find</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-19"></a>
+<a name="L-20"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n"><a href="hashmap.c.html#L-138">empty_insert</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">);</span>
+<a name="L-21"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n"><a href="hashmap.c.html#L-147">single_insert</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">);</span>
+<a name="L-22"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n"><a href="hashmap.c.html#L-181">bitmap_insert</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">);</span>
+<a name="L-23"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n"><a href="hashmap.c.html#L-202">collision_insert</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">);</span>
+<a name="L-24"></a>
+<a name="L-25"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n"><a href="hashmap.c.html#L-212">empty_remove</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-26"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n"><a href="hashmap.c.html#L-217">single_remove</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-27"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n"><a href="hashmap.c.html#L-226">bitmap_remove</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-28"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n"><a href="hashmap.c.html#L-244">collision_remove</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-29"></a>
+<a name="L-30"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-30">new_empty_node</a></span><span class="p">()</span> <span class="p">{</span>
+<a name="L-31"></a>	<span class="k">static</span> <span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n"><a href="object.h.html#L-51">n</a></span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<a name="L-32"></a>	<span class="k">if</span><span class="p">(</span><span class="n"><a href="object.h.html#L-51">n</a></span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-33"></a>		<span class="n"><a href="object.h.html#L-51">n</a></span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="p">));</span>
+<a name="L-34"></a>		<span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n">class</span> <span class="o">=</span> <span class="n"><a href="object.h.html#L-12">EMPTYNODE</a></span><span class="p">;</span>
+<a name="L-35"></a>		<span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-32">refcount</a></span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<a name="L-36"></a>		<span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-22">find</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-108">empty_find</a></span><span class="p">;</span>
+<a name="L-37"></a>		<span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-24">insert</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-138">empty_insert</a></span><span class="p">;</span>
+<a name="L-38"></a>		<span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-26">remove</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-212">empty_remove</a></span><span class="p">;</span>
+<a name="L-39"></a>		<span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-34">free</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-82">empty_free</a></span><span class="p">;</span>
+<a name="L-40"></a>	<span class="p">}</span>
+<a name="L-41"></a>	<span class="k">return</span> <span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">;</span>
+<a name="L-42"></a><span class="p">}</span>
+<a name="L-43"></a>
+<a name="L-44"></a><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-44">new_single_node</a></span><span class="p">()</span> <span class="p">{</span>
+<a name="L-45"></a>	<span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span> <span class="o">*</span><span class="n"><a href="object.h.html#L-51">n</a></span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="p">));</span>
+<a name="L-46"></a>	<span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n">class</span> <span class="o">=</span> <span class="n"><a href="object.h.html#L-13">SINGLENODE</a></span><span class="p">;</span>
+<a name="L-47"></a>	<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-22">find</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-112">single_find</a></span><span class="p">;</span>
+<a name="L-48"></a>	<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-24">insert</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-147">single_insert</a></span><span class="p">;</span>
+<a name="L-49"></a>	<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-26">remove</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-217">single_remove</a></span><span class="p">;</span>
+<a name="L-50"></a>	<span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-32">refcount</a></span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<a name="L-51"></a>	<span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-34">free</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-86">single_free</a></span><span class="p">;</span>
+<a name="L-52"></a>	<span class="k">return</span> <span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">;</span>
+<a name="L-53"></a><span class="p">}</span>
+<a name="L-54"></a>
+<a name="L-55"></a><span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span> <span class="o">*</span> <span class="nf"><a href="hashmap.c.html#L-55">new_bitmap_node</a></span><span class="p">()</span> <span class="p">{</span>
+<a name="L-56"></a>	<span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span> <span class="o">*</span><span class="n"><a href="object.h.html#L-51">n</a></span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span><span class="p">));</span>
+<a name="L-57"></a>	<span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n">class</span> <span class="o">=</span> <span class="n"><a href="object.h.html#L-14">BITMAPNODE</a></span><span class="p">;</span>
+<a name="L-58"></a>	<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-22">find</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-120">bitmap_find</a></span><span class="p">;</span>
+<a name="L-59"></a>	<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-24">insert</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-181">bitmap_insert</a></span><span class="p">;</span>
+<a name="L-60"></a>	<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-26">remove</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-226">bitmap_remove</a></span><span class="p">;</span>
+<a name="L-61"></a>	<span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-32">refcount</a></span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<a name="L-62"></a>	<span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-34">free</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-93">bitmap_free</a></span><span class="p">;</span>
+<a name="L-63"></a>	<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<a name="L-64"></a>	<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">32</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-65"></a>		<span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-50">children</a></span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-30">new_empty_node</a></span><span class="p">();</span>
+<a name="L-66"></a>	<span class="p">}</span>
+<a name="L-67"></a>	<span class="k">return</span> <span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">;</span>
+<a name="L-68"></a><span class="p">}</span>
+<a name="L-69"></a>
+<a name="L-70"></a><span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span> <span class="o">*</span> <span class="nf"><a href="hashmap.c.html#L-70">new_collision_node</a></span><span class="p">()</span> <span class="p">{</span>
+<a name="L-71"></a>	<span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span> <span class="o">*</span><span class="n"><a href="object.h.html#L-51">n</a></span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span><span class="p">));</span>
+<a name="L-72"></a>	<span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n">class</span> <span class="o">=</span> <span class="n"><a href="object.h.html#L-15">COLLISIONNODE</a></span><span class="p">;</span>
+<a name="L-73"></a>	<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-22">find</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-126">collision_find</a></span><span class="p">;</span>
+<a name="L-74"></a>	<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-24">insert</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-202">collision_insert</a></span><span class="p">;</span>
+<a name="L-75"></a>	<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-26">remove</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-244">collision_remove</a></span><span class="p">;</span>
+<a name="L-76"></a>	<span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-32">refcount</a></span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<a name="L-77"></a>	<span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-34">free</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-102">collision_free</a></span><span class="p">;</span>
+<a name="L-78"></a>	<span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-42">next</a></span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<a name="L-79"></a>	<span class="k">return</span> <span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">;</span>
+<a name="L-80"></a><span class="p">}</span>
+<a name="L-81"></a>
+<a name="L-82"></a><span class="kt">void</span> <span class="nf"><a href="hashmap.c.html#L-82">empty_free</a></span><span class="p">(</span><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-83"></a>	<span class="c1">// singleton, do nothing.</span>
+<a name="L-84"></a><span class="p">}</span>
+<a name="L-85"></a>
+<a name="L-86"></a><span class="kt">void</span> <span class="nf"><a href="hashmap.c.html#L-86">single_free</a></span><span class="p">(</span><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-87"></a>	<span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span> <span class="o">*</span><span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<a name="L-88"></a>	<span class="n"><a href="object.c.html#L-19">release</a></span><span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-89"></a>	<span class="n"><a href="object.c.html#L-19">release</a></span><span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">);</span>
+<a name="L-90"></a>	<span class="n"><a href="object.h.html#L-34">free</a></span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<a name="L-91"></a><span class="p">}</span>
+<a name="L-92"></a>
+<a name="L-93"></a><span class="kt">void</span> <span class="nf"><a href="hashmap.c.html#L-93">bitmap_free</a></span><span class="p">(</span><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-94"></a>	<span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span> <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<a name="L-95"></a>	<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<a name="L-96"></a>	<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">32</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-97"></a>		<span class="n"><a href="object.c.html#L-19">release</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n">b</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-50">children</a></span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<a name="L-98"></a>	<span class="p">}</span>
+<a name="L-99"></a>	<span class="n"><a href="object.h.html#L-34">free</a></span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<a name="L-100"></a><span class="p">}</span>
+<a name="L-101"></a>
+<a name="L-102"></a><span class="kt">void</span> <span class="nf"><a href="hashmap.c.html#L-102">collision_free</a></span><span class="p">(</span><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-103"></a>	<span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<a name="L-104"></a>	<span class="n"><a href="object.c.html#L-19">release</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n">c</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-42">next</a></span><span class="p">);</span>
+<a name="L-105"></a>	<span class="n"><a href="object.h.html#L-34">free</a></span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<a name="L-106"></a><span class="p">}</span>
+<a name="L-107"></a>
+<a name="L-108"></a><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-108">empty_find</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-109"></a>	<span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<a name="L-110"></a><span class="p">}</span>
+<a name="L-111"></a>
+<a name="L-112"></a><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-112">single_find</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-113"></a>	<span class="k">if</span><span class="p">(((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span> <span class="o">==</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-114"></a>		<span class="k">return</span> <span class="p">((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">;</span>
+<a name="L-115"></a>	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a name="L-116"></a>		<span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<a name="L-117"></a>	<span class="p">}</span>
+<a name="L-118"></a><span class="p">}</span>
+<a name="L-119"></a>
+<a name="L-120"></a><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-120">bitmap_find</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-121"></a>	<span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span> <span class="o">*</span><span class="n"><a href="object.h.html#L-51">n</a></span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<a name="L-122"></a>	<span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">child</span> <span class="o">=</span> <span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-50">children</a></span><span class="p">[(</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">level</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mi">31</span><span class="p">];</span>
+<a name="L-123"></a>	<span class="k">return</span> <span class="n">child</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-22">find</a></span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="p">(</span><span class="n">level</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-124"></a><span class="p">}</span>
+<a name="L-125"></a>
+<a name="L-126"></a><span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-126">collision_find</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-127"></a>	<span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span> <span class="o">*</span><span class="n"><a href="object.h.html#L-51">n</a></span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<a name="L-128"></a>	<span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span> <span class="o">*</span><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<a name="L-129"></a>	<span class="k">if</span><span class="p">(</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-33">equal</a></span><span class="p">(</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">,</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">))</span> <span class="p">{</span>
+<a name="L-130"></a>		<span class="k">return</span> <span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">;</span>
+<a name="L-131"></a>	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">m</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-42">next</a></span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-132"></a>		<span class="k">return</span> <span class="n"><a href="hashmap.c.html#L-126">collision_find</a></span><span class="p">((</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n">m</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-42">next</a></span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-133"></a>	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a name="L-134"></a>		<span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<a name="L-135"></a>	<span class="p">}</span>
+<a name="L-136"></a><span class="p">}</span>
+<a name="L-137"></a>
+<a name="L-138"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-138">empty_insert</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-139"></a>	<span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span> <span class="o">*</span><span class="n"><a href="object.h.html#L-51">n</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-44">new_single_node</a></span><span class="p">();</span>
+<a name="L-140"></a>	<span class="n"><a href="object.c.html#L-15">retain</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-141"></a>	<span class="n"><a href="object.c.html#L-15">retain</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">);</span>
+<a name="L-142"></a>	<span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">;</span>
+<a name="L-143"></a>	<span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">;</span>
+<a name="L-144"></a>	<span class="k">return</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">;</span>
+<a name="L-145"></a><span class="p">}</span>
+<a name="L-146"></a>
+<a name="L-147"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-147">single_insert</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-148"></a>	<span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<a name="L-149"></a>
+<a name="L-150"></a>	<span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span> <span class="o">!=</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-151"></a>		<span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span> <span class="o">*</span><span class="n">parent</span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-55">new_bitmap_node</a></span><span class="p">();</span>
+<a name="L-152"></a>
+<a name="L-153"></a>		<span class="n"><a href="object.c.html#L-15">retain</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n">node</span><span class="p">);</span>
+<a name="L-154"></a>		<span class="n">parent</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-50">children</a></span><span class="p">[(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">level</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mi">31</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n">node</span><span class="p">;</span>
+<a name="L-155"></a>
+<a name="L-156"></a>		<span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">second_child</span> <span class="o">=</span> <span class="n">parent</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-50">children</a></span><span class="p">[(</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">level</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mi">31</span><span class="p">];</span>
+<a name="L-157"></a>		<span class="n">parent</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-50">children</a></span><span class="p">[(</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">level</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mi">31</span><span class="p">]</span> <span class="o">=</span> <span class="n">second_child</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-24">insert</a></span><span class="p">(</span><span class="n">second_child</span><span class="p">,</span> <span class="p">(</span><span class="n">level</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">,</span> <span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">);</span>
+<a name="L-158"></a>		<span class="k">return</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n">parent</span><span class="p">;</span>
+<a name="L-159"></a>	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-33">equal</a></span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">,</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">))</span> <span class="p">{</span>
+<a name="L-160"></a>		<span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span> <span class="o">*</span><span class="n"><a href="object.h.html#L-51">n</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-44">new_single_node</a></span><span class="p">();</span>
+<a name="L-161"></a>		<span class="n"><a href="object.c.html#L-15">retain</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-162"></a>		<span class="n"><a href="object.c.html#L-15">retain</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">);</span>
+<a name="L-163"></a>		<span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">;</span>
+<a name="L-164"></a>		<span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">;</span>
+<a name="L-165"></a>		<span class="k">return</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">;</span>
+<a name="L-166"></a>	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a name="L-167"></a>		<span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span> <span class="o">*</span><span class="n">col_node</span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-70">new_collision_node</a></span><span class="p">();</span>
+<a name="L-168"></a>		<span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span> <span class="o">*</span><span class="n">next_col_node</span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-70">new_collision_node</a></span><span class="p">();</span>
+<a name="L-169"></a>
+<a name="L-170"></a>		<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">col_node</span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">;</span>
+<a name="L-171"></a>		<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">col_node</span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">;</span>
+<a name="L-172"></a>		<span class="n">col_node</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-42">next</a></span> <span class="o">=</span> <span class="n">next_col_node</span><span class="p">;</span>
+<a name="L-173"></a>
+<a name="L-174"></a>		<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">next_col_node</span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">;</span>
+<a name="L-175"></a>		<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">next_col_node</span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">;</span>
+<a name="L-176"></a>		
+<a name="L-177"></a>		<span class="k">return</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n">col_node</span><span class="p">;</span>
+<a name="L-178"></a>	<span class="p">}</span>
+<a name="L-179"></a><span class="p">}</span>
+<a name="L-180"></a>
+<a name="L-181"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-181">bitmap_insert</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-182"></a>	<span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<a name="L-183"></a>	<span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span> <span class="o">*</span><span class="n">new</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span><span class="p">));</span>
+<a name="L-184"></a>	<span class="n">memcpy</span><span class="p">(</span><span class="n">new</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span><span class="p">));</span>
+<a name="L-185"></a>	<span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n">new</span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-32">refcount</a></span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<a name="L-186"></a>	
+<a name="L-187"></a>	<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<a name="L-188"></a>	<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">32</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-189"></a>		<span class="n"><a href="object.c.html#L-15">retain</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n">node</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-50">children</a></span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<a name="L-190"></a>	<span class="p">}</span>
+<a name="L-191"></a>
+<a name="L-192"></a>	<span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">child</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-50">children</a></span><span class="p">[(</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">level</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mi">31</span><span class="p">];</span>
+<a name="L-193"></a>	<span class="n">new</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-50">children</a></span><span class="p">[(</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">level</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mi">31</span><span class="p">]</span> <span class="o">=</span> <span class="n">child</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-24">insert</a></span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="p">(</span><span class="n">level</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">,</span> <span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">);</span>
+<a name="L-194"></a>	
+<a name="L-195"></a>	<span class="c1">// we overwrote the incremented one with a new one.</span>
+<a name="L-196"></a>	<span class="c1">// reset the old one, we don&#39;t ref it.</span>
+<a name="L-197"></a>	<span class="n"><a href="object.c.html#L-19">release</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n">child</span><span class="p">);</span>
+<a name="L-198"></a>
+<a name="L-199"></a>	<span class="k">return</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n">new</span><span class="p">;</span>
+<a name="L-200"></a><span class="p">}</span>
+<a name="L-201"></a>
+<a name="L-202"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-202">collision_insert</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-203"></a>	<span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span> <span class="o">*</span><span class="n"><a href="object.h.html#L-51">n</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.c.html#L-70">new_collision_node</a></span><span class="p">();</span>
+<a name="L-204"></a>	<span class="n"><a href="object.c.html#L-15">retain</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-205"></a>	<span class="n"><a href="object.c.html#L-15">retain</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">);</span>
+<a name="L-206"></a>	<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">;</span>
+<a name="L-207"></a>	<span class="p">((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span> <span class="o">=</span> <span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">;</span>
+<a name="L-208"></a>	<span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-42">next</a></span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<a name="L-209"></a>	<span class="k">return</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">;</span>
+<a name="L-210"></a><span class="p">}</span>
+<a name="L-211"></a>
+<a name="L-212"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-212">empty_remove</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-213"></a>	<span class="c1">//retain((Object*)self);</span>
+<a name="L-214"></a>	<span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+<a name="L-215"></a><span class="p">}</span>
+<a name="L-216"></a>
+<a name="L-217"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-217">single_remove</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-218"></a>	<span class="k">if</span><span class="p">(((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span> <span class="o">==</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-219"></a>		<span class="k">return</span> <span class="n"><a href="hashmap.c.html#L-30">new_empty_node</a></span><span class="p">();</span>
+<a name="L-220"></a>	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a name="L-221"></a>		<span class="n"><a href="object.c.html#L-15">retain</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">);</span>
+<a name="L-222"></a>		<span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+<a name="L-223"></a>	<span class="p">}</span>
+<a name="L-224"></a><span class="p">}</span>
+<a name="L-225"></a>
+<a name="L-226"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-226">bitmap_remove</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-227"></a>	<span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<a name="L-228"></a>	<span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span> <span class="o">*</span><span class="n">new</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span><span class="p">));</span>
+<a name="L-229"></a>	<span class="n">memcpy</span><span class="p">(</span><span class="n">new</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span><span class="p">));</span>
+<a name="L-230"></a>
+<a name="L-231"></a>	<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<a name="L-232"></a>	<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">32</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-233"></a>		<span class="n"><a href="object.c.html#L-15">retain</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n">node</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-50">children</a></span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<a name="L-234"></a>	<span class="p">}</span>
+<a name="L-235"></a>	
+<a name="L-236"></a>	<span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">child</span> <span class="o">=</span> <span class="n">new</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-50">children</a></span><span class="p">[(</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">level</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mi">31</span><span class="p">];</span>
+<a name="L-237"></a>	<span class="n">new</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-50">children</a></span><span class="p">[(</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.c.html#L-5">hash</a></span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">level</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mi">31</span><span class="p">]</span> <span class="o">=</span> <span class="n">child</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-26">remove</a></span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="p">(</span><span class="n">level</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-238"></a>
+<a name="L-239"></a>	<span class="n"><a href="object.c.html#L-19">release</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n">child</span><span class="p">);</span>
+<a name="L-240"></a>
+<a name="L-241"></a>	<span class="k">return</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n">new</span><span class="p">;</span>
+<a name="L-242"></a><span class="p">}</span>
+<a name="L-243"></a>
+<a name="L-244"></a><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="nf"><a href="hashmap.c.html#L-244">collision_remove</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="object.h.html#L-29">Object</a></span> <span class="o">*</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-245"></a>	<span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span> <span class="o">*</span><span class="n"><a href="object.h.html#L-51">n</a></span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<a name="L-246"></a>	<span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span> <span class="o">*</span><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">self</span><span class="p">;</span>
+<a name="L-247"></a>	<span class="k">if</span><span class="p">(</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-33">equal</a></span><span class="p">(</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">,</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">))</span> <span class="p">{</span>
+<a name="L-248"></a>		<span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-42">next</a></span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-249"></a>			<span class="n"><a href="object.c.html#L-15">retain</a></span><span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n">m</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-42">next</a></span><span class="p">);</span>
+<a name="L-250"></a>			<span class="k">return</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n">m</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-42">next</a></span><span class="p">;</span>
+<a name="L-251"></a>		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a name="L-252"></a>			<span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<a name="L-253"></a>		<span class="p">}</span>
+<a name="L-254"></a>	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a name="L-255"></a>		<span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span> <span class="o">*</span><span class="n">new</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span><span class="p">));</span>
+<a name="L-256"></a>		<span class="n">memcpy</span><span class="p">(</span><span class="n">new</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span><span class="p">));</span>
+<a name="L-257"></a>		<span class="n">new</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-42">next</a></span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="hashmap.c.html#L-244">collision_remove</a></span><span class="p">((</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n">m</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-42">next</a></span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n"><a href="hashmap.h.html#L-35">key</a></span><span class="p">);</span>
+<a name="L-258"></a>		<span class="k">return</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span><span class="o">*</span><span class="p">)</span><span class="n">new</span><span class="p">;</span>
+<a name="L-259"></a>	<span class="p">}</span>
+<a name="L-260"></a><span class="p">}</span>
+<a name="L-261"></a>
+<a name="L-262"></a><span class="kt">void</span> <span class="nf"><a href="hashmap.c.html#L-262">print_tree</a></span><span class="p">(</span><span class="n"><a href="hashmap.h.html#L-19">Node</a></span> <span class="o">*</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">,</span> <span class="kt">int</span> <span class="n">space</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-263"></a>	<span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="n">space</span><span class="p">;</span>
+<a name="L-264"></a>	<span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span> <span class="o">*</span><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n"><a href="hashmap.h.html#L-40">CollisionNode</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">;</span>
+<a name="L-265"></a>	
+<a name="L-266"></a>	<span class="k">switch</span><span class="p">(((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n">class</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-267"></a>		<span class="k">case</span> <span class="n"><a href="object.h.html#L-13">SINGLENODE</a></span>:
+<a name="L-268"></a>			<span class="k">while</span><span class="p">(</span><span class="n">s</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-269"></a>				<span class="n">printf</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<a name="L-270"></a>			<span class="p">}</span>
+<a name="L-271"></a>			<span class="k">if</span><span class="p">(((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="o">-&gt;</span><span class="n">class</span> <span class="o">==</span> <span class="n"><a href="object.h.html#L-16">OSTRING</a></span><span class="p">)</span>
+<a name="L-272"></a>				<span class="n">printf</span><span class="p">(</span><span class="s">&quot;s: %u, %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-32">refcount</a></span><span class="p">,</span> <span class="p">((</span><span class="n"><a href="object.h.html#L-37">OString</a></span><span class="o">*</span><span class="p">)((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-39">str</a></span><span class="p">);</span>
+<a name="L-273"></a>			<span class="k">else</span> <span class="k">if</span><span class="p">(((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="o">-&gt;</span><span class="n">class</span> <span class="o">==</span> <span class="n"><a href="object.h.html#L-17">OINT</a></span><span class="p">)</span>
+<a name="L-274"></a>				<span class="n">printf</span><span class="p">(</span><span class="s">&quot;s: %u, %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-32">refcount</a></span><span class="p">,</span> <span class="p">((</span><span class="n"><a href="object.h.html#L-49">OInt</a></span><span class="o">*</span><span class="p">)((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">);</span>
+<a name="L-275"></a>			<span class="k">break</span><span class="p">;</span>
+<a name="L-276"></a>		<span class="k">case</span> <span class="n"><a href="object.h.html#L-15">COLLISIONNODE</a></span>:
+<a name="L-277"></a>			<span class="k">for</span><span class="p">(;</span> <span class="n">m</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">;</span> <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-42">next</a></span><span class="p">)</span> <span class="p">{</span>
+<a name="L-278"></a>				<span class="n">s</span> <span class="o">=</span> <span class="n">space</span><span class="p">;</span>
+<a name="L-279"></a>				<span class="k">while</span><span class="p">(</span><span class="n">s</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-280"></a>					<span class="n">printf</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<a name="L-281"></a>				<span class="p">}</span>
+<a name="L-282"></a>				<span class="k">if</span><span class="p">(((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">m</span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="o">-&gt;</span><span class="n">class</span> <span class="o">==</span> <span class="n"><a href="object.h.html#L-16">OSTRING</a></span><span class="p">)</span>
+<a name="L-283"></a>					<span class="n">printf</span><span class="p">(</span><span class="s">&quot;c: %u, %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-32">refcount</a></span><span class="p">,</span> <span class="p">((</span><span class="n"><a href="object.h.html#L-37">OString</a></span><span class="o">*</span><span class="p">)((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">m</span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-39">str</a></span><span class="p">);</span>
+<a name="L-284"></a>				<span class="k">else</span> <span class="k">if</span><span class="p">(((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">m</span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="o">-&gt;</span><span class="n">class</span> <span class="o">==</span> <span class="n"><a href="object.h.html#L-17">OINT</a></span><span class="p">)</span>
+<a name="L-285"></a>					<span class="n">printf</span><span class="p">(</span><span class="s">&quot;c: %u, %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">((</span><span class="n"><a href="object.h.html#L-29">Object</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-32">refcount</a></span><span class="p">,</span> <span class="p">((</span><span class="n"><a href="object.h.html#L-49">OInt</a></span><span class="o">*</span><span class="p">)((</span><span class="n"><a href="hashmap.h.html#L-33">SingleNode</a></span><span class="o">*</span><span class="p">)</span><span class="n">m</span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-36">value</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">);</span>
+<a name="L-286"></a>			<span class="p">}</span>
+<a name="L-287"></a>			<span class="k">break</span><span class="p">;</span>
+<a name="L-288"></a>
+<a name="L-289"></a>		<span class="k">case</span> <span class="n"><a href="object.h.html#L-14">BITMAPNODE</a></span>:
+<a name="L-290"></a>			<span class="n">printf</span><span class="p">(</span><span class="s">&quot;b:&quot;</span><span class="p">);</span>
+<a name="L-291"></a>			<span class="k">for</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">s</span><span class="o">&lt;</span><span class="mi">32</span><span class="p">;</span><span class="n">s</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-292"></a>				<span class="n"><a href="hashmap.c.html#L-262">print_tree</a></span><span class="p">(((</span><span class="n"><a href="hashmap.h.html#L-48">BitmapNode</a></span><span class="o">*</span><span class="p">)</span><span class="n"><a href="object.h.html#L-51">n</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n"><a href="hashmap.h.html#L-50">children</a></span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="p">(</span><span class="n">space</span> <span class="o">+</span> <span class="mi">4</span><span class="p">));</span>
+<a name="L-293"></a>			<span class="p">}</span>
+<a name="L-294"></a>			<span class="k">break</span><span class="p">;</span>
+<a name="L-295"></a>		<span class="nl">default:</span>
+<a name="L-296"></a>			<span class="k">while</span><span class="p">(</span><span class="n">s</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+<a name="L-297"></a>				<span class="n">printf</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<a name="L-298"></a>			<span class="p">}</span>
+<a name="L-299"></a>			<span class="n">printf</span><span class="p">(</span><span class="s">&quot;.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<a name="L-300"></a>	<span class="p">}</span>	
+<a name="L-301"></a><span class="p">}</span>
+<a name="L-302"></a>
+<a name="L-303"></a><span class="cm">/*int main(int argc, char **argv) {</span>
+<a name="L-304"></a><span class="cm">	Node *original = new_empty_node();</span>
+<a name="L-305"></a>
+<a name="L-306"></a><span class="cm">	OInt *key1 = new_oint(5);</span>
+<a name="L-307"></a><span class="cm">	OString *value1 = new_ostring(&quot;hello world&quot;);</span>
+<a name="L-308"></a><span class="cm">	Node *new1 = INSERT(original, key1, value1);</span>
+<a name="L-309"></a><span class="cm">	OInt *key2 = new_oint(8);</span>
+<a name="L-310"></a><span class="cm">	OString *value2 = new_ostring(&quot;blah&quot;);</span>
+<a name="L-311"></a><span class="cm">	Node *new2 = INSERT(new1, key2, value2);</span>
+<a name="L-312"></a>
+<a name="L-313"></a><span class="cm">	print_tree(new1, 0);</span>
+<a name="L-314"></a><span class="cm">	print_tree(new2, 0);</span>
+<a name="L-315"></a><span class="cm">	release((Object*)new1);</span>
+<a name="L-316"></a><span class="cm">	release((Object*)key1);</span>
+<a name="L-317"></a><span class="cm">	release((Object*)value1);</span>
+<a name="L-318"></a><span class="cm">	print_tree(new2, 0);</span>
+<a name="L-319"></a><span class="cm">	release((Object*)new2);</span>
+<a name="L-320"></a><span class="cm">	release((Object*)key2);</span>
+<a name="L-321"></a><span class="cm">	release((Object*)value2);</span>
+<a name="L-322"></a><span class="cm">	return 0;</span>
+<a name="L-323"></a><span class="cm">}*/</span>
+</pre></div>
+</td></tr></table></body>
+</html>
