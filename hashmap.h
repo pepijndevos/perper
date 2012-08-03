@@ -1,3 +1,4 @@
+#include <talloc.h>
 #include "object.h"
 
 #pragma once
@@ -11,9 +12,9 @@ typedef struct CollisionNode CollisionNode;
 // lookup this Object key in itself using Object->hash
 typedef Object *(*finder)(BasicNode *self, int level, Object *key);
 // insert value into Node under key
-typedef BasicNode *(*inserter)(BasicNode *self, int level, Object *key, Object *value);
+typedef BasicNode *(*inserter)(BasicNode *self, void *ctx, int level, Object *key, Object *value);
 // remove key from self
-typedef BasicNode *(*remover)(BasicNode *self, int level, Object *key);
+typedef BasicNode *(*remover)(BasicNode *self, void *ctx, int level, Object *key);
 
 struct NodeType {
 	OBJECTTYPEHEADER
@@ -54,13 +55,13 @@ struct BitmapNode {
 };
 
 
-#define INSERT(map, key, value) ((BasicNode*)map)->class->insert(((BasicNode*)map), 0, ((Object*)key), ((Object*)value))
+#define INSERT(map, ctx, key, value) ((BasicNode*)map)->class->insert(((BasicNode*)map), ctx, 0, ((Object*)key), ((Object*)value))
 
 #define FIND(map, key) ((BasicNode*)map)->class->find(((Object*)map), 0, ((BasicNode*)key))
 
-#define REMOVE(map, key) ((BasicNode*)map)->class->remove(((BasicNode*)map), 0, ((Object*)key))
+#define REMOVE(map, ctx,  key) ((BasicNode*)map)->class->remove(((BasicNode*)map), ctx, 0, ((Object*)key))
 
-BasicNode *new_empty_node(void);
-SingleNode *new_single_node(void);
-BitmapNode *new_bitmap_node(void);
-CollisionNode *new_collision_node(void);
+BasicNode *new_empty_node(void *ctx);
+SingleNode *new_single_node(void *ctx);
+BitmapNode *new_bitmap_node(void *ctx);
+CollisionNode *new_collision_node(void *ctx);

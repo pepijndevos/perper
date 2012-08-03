@@ -1,6 +1,7 @@
-CFLAGS=-Wall -g -O2
+CFLAGS=-Wall -g -O3
 
-all: test
+all: object.o hashmap.o 
+	gcc $(CFLAGS) test.c hashmap.o object.o -ltalloc -o test
  
 test: hashmap.o object.o
 

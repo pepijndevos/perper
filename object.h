@@ -1,3 +1,4 @@
+#include <talloc.h>
 #include <stdbool.h>
 
 #pragma once
@@ -13,12 +14,10 @@ typedef void (*freeer)(Object *obj);
 
 #define OBJECTTYPEHEADER \
 	equalifier equal; \
-	freeer free;
 
 #define OBJECTHEADER(type) \
 	type *class; \
 	hash_t hash; \
-	unsigned int refcount;
 
 struct ObjectType {
 	OBJECTTYPEHEADER
@@ -42,11 +41,7 @@ struct OInt {
 #define OSTR2CSTR(o) ((OString*)(o))->str
 #define OINT2INT(i) ((OInt*)(i))->n
 
-OString *new_ostring(char *str);
-OInt *new_oint(int n);
+OString *new_ostring(void *ctx, char *str);
+OInt *new_oint(void *ctx, int n);
 
 hash_t hash(void *obj, int size);
-
-void retain(Object *obj);
-
-void release(Object *obj);
